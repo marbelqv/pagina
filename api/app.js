@@ -41,6 +41,15 @@ app.get('/clients', (req, res) => {
 });
 
 
+
+
+
+
+
+
+
+
+
 app.get('/personal', (req, res) => {
     db.query('SELECT * FROM personal', (err, results) => {
         if (err) {
@@ -158,6 +167,20 @@ app.post('/proveedores', (req, res) => {
 
 
 
+app.post('/personal', (req, res) => {
+    const newClient = req.body;
+    db.query('INSERT INTO personal SET ?', newClient, (err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(201).json({ id: results.insertId, ...newClient });
+        }
+    });
+});
+
+
+
+
 
 
 
@@ -173,6 +196,23 @@ app.delete('/clients/:id', (req, res) => {
         }
     });
 });
+
+
+
+
+app.delete('/personal/:id', (req, res) => {
+    const { id } = req.params;
+    db.query('DELETE FROM personal WHERE id = ?', [id], (err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (results.affectedRows === 0) {
+            res.status(404).send('Client not found');
+        } else {
+            res.status(204).send();
+        }
+    });
+});
+
 
 app.delete('/productos/:id', (req, res) => {
     const { id } = req.params;
@@ -208,6 +248,20 @@ app.put('/clients/:id', (req, res) => {
     const { id } = req.params;
     const updatedClient = req.body;
     db.query('UPDATE clientes SET ? WHERE id = ?', [updatedClient, id], (err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (results.affectedRows === 0) {
+            res.status(404).send('Client not found');
+        } else {
+            res.json({ id, ...updatedClient });
+        }
+    });
+});
+
+app.put('/personal/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedClient = req.body;
+    db.query('UPDATE personal SET ? WHERE id = ?', [updatedClient, id], (err, results) => {
         if (err) {
             res.status(500).send(err);
         } else if (results.affectedRows === 0) {
