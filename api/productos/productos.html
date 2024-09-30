@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productos</title>
+    <style>
+      body{
+    background-color: rgb(234, 198, 131);
+}
+form label{
+    font-size: 20px;
+    font-weight: 600;
+}
+form button{
+    margin-left: 50px;
+    padding: 15px 15px;
+    border-radius: 30px;
+    font-size: 15px;
+}
+form button:hover{
+    background-color:rgb(239, 186, 60);
+    cursor: pointer;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            background-color: rgb(239, 186, 60);
+            padding: 9px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>productos</h1>
+
+    <form id="productoForm">
+        <label for="nombrep">nombre :</label>
+        <input type="text" id="nombrep" name="nombrep" required><br><br>
+
+        <label for="precio_uni">precio unidad :</label>
+        <input type="tex" id="precio_uni" name="precio_uni" required><br><br>
+
+
+        <label for="id_categoria">categoria :</label>
+        <input type="tex" id="id_categoria" name="id_categoria" required><br><br>
+        <label for="proovedor">proovedor :</label>
+        <input type="tex" id="proovedor" name="proovedor" required><br><br>
+
+       
+
+        <input type="hidden" id="productoId" name="productoId">
+       
+        <button type="submit" id="submitButton">añadir producto</button>
+    </form>
+
+    <h2>lista de productos</h2>
+    <table id="productosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>nombre</th>
+                <th>precio unidad</th>
+                <th>categoria</th>
+                <th>proovedor</th>
+               
+
+
+                
+            </tr>
+        </thead>
+        <tbody id="productosBody">
+            <!-- Customers will be dynamically populated here -->
+        </tbody>
+    </table>
+
+    <!-- Include Axios from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="productos.js"></script>
+</body>
+</html>

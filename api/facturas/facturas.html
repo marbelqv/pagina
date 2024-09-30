@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>facturas</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<style>
+    body{
+        background-color: rgb(235, 198, 130);
+    }
+form label{
+    margin: 30px 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+form button{
+    padding: 12px 12px;
+    margin-left: 35px;
+    border-radius: 20px;
+}
+form button:hover{
+    cursor: pointer;
+    background-color: orange;
+}
+
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    <h1>facturas</h1>
+    
+    <form id="invoiceForm">
+        <label for="invoiceCustomer">Cliente:</label>
+        <select id="invoiceCustomer" required></select>
+        
+        <label for="invoiceProducts">Productos:</label>
+        <select id="invoiceProducts" multiple required></select>
+        
+        <button type="submit" id="invoiceSubmitButton">Añadir factura</button>
+    </form>
+    
+    <h2> Lista de facturas</h2>
+    <ul id="invoiceList"></ul>
+
+    <script src="facturas.js"></script>
+</body>
+
+
+
+
+</html>
