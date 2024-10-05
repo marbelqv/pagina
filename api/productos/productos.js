@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const nombrep = document.getElementById('nombrep').value;
         const precio_uni = document.getElementById('precio_uni').value;
-        const id_categoria = document.getElementById('id_categoria').value;
+       
         const proovedor = document.getElementById('proovedor').value;
        
        
         const productoData = {
             nombrep: document.getElementById('nombrep').value,
             precio_uni: document.getElementById('precio_uni').value,
-            id_categoria: document.getElementById('id_categoria').value,
+            
             proovedor: document.getElementById('proovedor').value
             
             
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${producto.id}</td>
                 <td>${producto.nombrep}</td>
                 <td>${producto.precio_uni}</td>
-                 <td>${producto.id_categoria}</td>
+                
                 <td>${producto.proovedor}</td>
                 
                 <td>
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const producto = productos.find(c => c.id === id);
         document.getElementById('nombrep').value = producto.nombrep;
         document.getElementById('precio_uni').value = producto.precio_uni;
-        document.getElementById('id_categoria').value = producto.id_categoria;
+       
         document.getElementById('proovedor').value = producto.proovedor;
 
 
