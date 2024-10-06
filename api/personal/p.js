@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const identificacion = document.getElementById('identificacion').value;
         
         const horas = document.getElementById('horas').value;
+        const cargo = document.getElementById('cargo').value;
 
 
         const personalData = {
@@ -31,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
             apellido: document.getElementById('apellido').value,
             telefono: document.getElementById('telefono').value,
             identificacion: document.getElementById('identificacion').value,
-            horas: document.getElementById('horas').value
+            horas: document.getElementById('horas').value,
+            cargo: document.getElementById('cargo').value
         };  
 
         if (currentpersonalId === null) {
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${personal.telefono}</td>
                  <td>${personal.identificacion}</td>
                 <td>${personal.horas}</td>
+                <td>${personal.cargo}</td>
                 <td>
                     <button onclick="editpersonal(${personal.id})">Edit</button>
                     <button onclick="deletepersonal(${personal.id})">Delete</button>
@@ -102,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('telefono').value = personal.telefono;
         document.getElementById('identificacion').value = personal.identificacion;
         document.getElementById('horas').value = personal.horas;
+        document.getElementById('cargo').value = personal.cargo;
         
         
         currentpersonalId = personal.id;
